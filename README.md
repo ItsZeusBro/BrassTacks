@@ -37,4 +37,4 @@ A good example of Soft Base Strings are simply strings that never recurse from t
 
 #### Why do Base Strings Matter at all?
 - For one it would be interesting to find the pattern that explains all non-patterned behavior in a string or anything else.
-- Thats about as powerful of a statement as we ever may conjure up in our imagination. But on a side note, we could use properties of Base Strings for other things in case we never achieved such an understanding. Relationships on a subset of base strings could end up proving useful.
+- Thats about as powerful of a statement as we ever may conjure up in our imagination. But on a side note, we could use properties of Base Strings for other things in case we never achieved such an understanding. Relationships on a subset of base strings could end up proving useful. For example, Base Binary Strings can be used for a set of General Schema problems
