@@ -123,13 +123,15 @@ export class BrassTacks{
             return str
         }
         else if(str.length==length){
-            for(var i = 0; i< str.length; i++){
-                str = this.rotate(str)
-                permutations.push(this.PermWoRep(str.slice(0, str.length-1)).concat(str.slice(str.length-1)))
+            for(var i = 0; i<this.factorialize(length); i++){
+                str = this.PermWoRep(str.slice(0, str.length-1)).concat(str.slice(str.length-1))
+                permutations.push(str)
             }
+            return permutations
         }else{
-            return this.PermWoRep(str.slice(0, str.length-1)).concat(str.slice(str.length-1))
+            return this.rotate(this.PermWoRep(str.slice(0, str.length-1)).concat(str.slice(str.length-1)))
         }
+
     }
 
     factorialize(n){
