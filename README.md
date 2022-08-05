@@ -24,12 +24,12 @@ A Compound Pallindrome Base Set is when you string the pallindrome base set toge
 ...
 
 The problem with a small alphabet like binary is that its Hard Base String set is extremely small
-0
-1
-10
-01
-101
-010
+- 0
+- 1
+- 10
+- 01
+- 101
+- 010
 
 #### Soft Base Strings
 A good example of Soft Base Strings are simply strings that never recurse from the left most charachter. Lets use a binary base string as an example.
