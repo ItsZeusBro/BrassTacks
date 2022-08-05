@@ -144,4 +144,4 @@ export class BrassTacks{
     }
 }
 
-new BrassTacks()
+//new BrassTacks()

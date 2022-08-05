@@ -11,8 +11,8 @@ class Test{
         this.isOverLimit()
         this.isRecursive()
         this.primPattAbstract()
-        this.isBT()
-        this.BTT()
+        this.isBinaryBaseString()
+        this.BinaryStringTree()
     }
 
     isOverLimit(){
@@ -71,6 +71,18 @@ class Test{
 
     }
 
+    isBinaryBaseString(){
+        var bt = new BrassTacks(5, 100)
+        var recursiveStrings=[]
+        for(var _1s=1; _1s<100; _1s++){
+            for(var _0s=1; _0s<100; _0s++){
+                for(var _r=2; _r<100; _r++){
+                    assert.equal(true, bt.isBinaryBaseString("1"+"0".repeat(_0s)+"1".repeat(_1s)))
+                }
+            }
+        }
+    }
+    
     BinaryStringTree(){
         //when we construct a brasstacks object
         //all the bStrings should be able to completely walk through the tree perfectly
@@ -86,21 +98,11 @@ class Test{
 
     
 
-    isBinaryBaseString(){
-        var bt = new BrassTacks(5, 100)
-        var recursiveStrings=[]
-        for(var _1s=1; _1s<100; _1s++){
-            for(var _0s=1; _0s<100; _0s++){
-                for(var _r=2; _r<100; _r++){
-                    assert.equal(true, bt.isBinaryBaseString("1"+"0".repeat(_0s)+"1".repeat(_1s)))
-                }
-            }
-        }
-    }
+
 
 
 }
-console.log("UHHH")
+//console.log("UHHH")
 
 
-//new Test()
+new Test()
