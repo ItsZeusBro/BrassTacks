@@ -2,10 +2,12 @@ import { BrassTacks } from "./BrassTacks.js"
 import * as assert from "node:assert"
 class Test{
     constructor(){
+        console.log("UHHH")
         this.tests()
     }
 
     tests(){
+        console.log("UHHH")
         this.isOverLimit()
         this.isRecursive()
         this.primPattAbstract()
@@ -13,19 +15,8 @@ class Test{
         this.BTT()
     }
 
-
-    BTT(){
-        //when we construct a brasstacks object
-        //all the bStrings should be able to completely walk through the tree perfectly
-        var levels=10;
-        var limit=2;
-        var bt = new BrassTacks(levels, limit)
-        for(var i = 0; i<bt.bStrings.length; i++){
-            assert.equal(true, bt.BStringWalk(bt.bStrings[i]))
-        }
-    }
-
     isOverLimit(){
+        console.log('isOVERLIMIT')
         var levels=5;
         var limit=2;
         var bt = new BrassTacks(levels, limit)
@@ -62,6 +53,8 @@ class Test{
     }
 
     isRecursive(){
+        console.log('isRECURSIVE')
+
         var bt = new BrassTacks(0, 0)
         var recursiveStrings=[]
         for(var _1s=1; _1s<100; _1s++){
@@ -73,21 +66,41 @@ class Test{
         }
     }
 
-    isBT(){
+    primPattAbstract(){
+        console.log('PRIMPATTABSTRACT')
+
+    }
+
+    BinaryStringTree(){
+        //when we construct a brasstacks object
+        //all the bStrings should be able to completely walk through the tree perfectly
+        var levels=10;
+        var limit=2;
+        var bt = new BrassTacks(levels, limit)
+        for(var i = 0; i<bt.binaryStrings.length; i++){
+            assert.equal(true, bt.BinaryStringWalk(bt.binaryStrings[i]))
+        }
+    }
+
+    
+
+    
+
+    isBinaryBaseString(){
         var bt = new BrassTacks(5, 100)
         var recursiveStrings=[]
         for(var _1s=1; _1s<100; _1s++){
             for(var _0s=1; _0s<100; _0s++){
                 for(var _r=2; _r<100; _r++){
-                    assert.equal(true, bt.isBT("1"+"0".repeat(_0s)+"1".repeat(_1s)))
+                    assert.equal(true, bt.isBinaryBaseString("1"+"0".repeat(_0s)+"1".repeat(_1s)))
                 }
             }
         }
     }
 
-    primPattAbstract(){
 
-    }
 }
+console.log("UHHH")
 
-new Test()
+
+//new Test()

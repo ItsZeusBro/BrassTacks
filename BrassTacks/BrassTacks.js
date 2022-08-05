@@ -4,7 +4,7 @@ export class BrassTacks{
         this.limit=limit
         this.binaryStrings=[]
         this.decimalStrings=[]
-        this.levels
+        this.levels=levels
         this.init()
     }
     init(){
@@ -44,12 +44,12 @@ export class BrassTacks{
         if(levels==0){
             return
         }else{
-            if(this.isBaseBinaryString(binaryString.slice()+'0')){
+            if(this.isBinaryBaseString(binaryString.slice()+'0')){
                 this.binaryStrings.push(binaryString.slice()+'0')
                 this.decimalStrings.push(parseInt(binaryString.slice()+'0', 2))
                 this.BinaryStrings(binaryString.slice()+'0',  levels-1)
             }
-            if(this.isBaseBinaryString(binaryString.slice()+'1')){
+            if(this.isBinaryBaseString(binaryString.slice()+'1')){
                 this.binaryStrings.push(binaryString.slice()+'1')
                 this.decimalStrings.push(parseInt(binaryString.slice()+'1', 2))
                 this.BinaryStrings(binaryString.slice()+'1',  levels-1)
@@ -57,7 +57,7 @@ export class BrassTacks{
         }
     }
 
-    isBaseBinaryString(binaryString){
+    isBinaryBaseString(binaryString){
         if(!this.isRecursive(binaryString)){
             if(!this.isOverLimit(binaryString)){
                 return true
