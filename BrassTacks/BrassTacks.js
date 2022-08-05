@@ -121,20 +121,27 @@ export class BrassTacks{
     }
     PermWoRep(str){
         var permutations=[]
-        permutations.push(str)
+        var start = str.slice()
+
+        do{
+
+        }while(str!==start)
         
-        for(var i = 0; i<str.length; i++){
-            for(var j = 1; j<str.length; j++){
-                str = this.rotate(str.slice(j, j+1)).concat(str.slice(j+1))
-                console.log(str)
-                // permutations.push(str.slice())
-            }
-            str = this.rotate(str)
-        }
+        this.rotate(str)
 
         return permutations
     }
 
+    swap(a, i, j){
+        if((i>a.length-1) || (j>a.length-1)){
+            return a.slice()
+        }
+        var b = a.slice()
+        const tmp = b[i]
+        b[i] = b[j]
+        b[j] = tmp
+        return b
+    }
     isOdd(num) { return num % 2;}
     factorialize(n){
         var factorial = 1
@@ -183,6 +190,6 @@ export class BrassTacks{
 
 var bt = new BrassTacks(0, 0)
 //console.log(bt.rotate(['a', 'b', 'c', 'd']))
-console.log(bt.PermWoRep(['a', 'b', 'c', 'd']))
+console.log(bt.swap(['a', 'b', 'c', 'd'], 3, 3))
 
 //console.log(bt.factorialize(5))
