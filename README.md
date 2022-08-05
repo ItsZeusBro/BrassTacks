@@ -1,7 +1,7 @@
 # BrassTacks
 
 ## Base Strings
-But first, lets talk about something I call "Base Strings"
+Lets talk about something I call "Base Strings"
 
 Base Strings is possibly a new subject of mathematics, in which we speak of non-recurrent strings as a first class object. Its like trying to find the pattern of patterns by generating things that have no pattern.
 
