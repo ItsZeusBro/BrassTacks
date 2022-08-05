@@ -118,23 +118,39 @@ export class BrassTacks{
         }
         return false
     }
-    PermutationsWithoutRepetition(str, permutations){
+    PermWoRep(str, permutations){
         if(str.length==1){
             return str
-        }else{
-            for(var i=1; i<=str.length; i++){
-                str = this.rotate(str)
-                console.log(str.slice(0, i)+str.slice(i, str.length))
-                //permutations.push(str.slice(0, i+1)+this.PermutationsWithoutRepetition(str.slice(i, str.length), permutations))
-            }
         }
+        else{
+            for(var i = 0; i< str.length; i++){
+                str = this.rotate(str)
+                console.log(str)
+                this.PermWoRep(str.slice(0, str.length-1))
+                //this.PermWoRep(str.slice(0, str.length-1)).concat(str.slice(str.length-1, str.length)))
+            }
+            //console.log()
+            //return this.PermWoRep(this.rotate(str.slice(0, str.length-1))).concat(str.slice(str.length-1, str.length))
+        }
+        //str.slice(0, i+1).concat(this.PermWoRep(str.slice(i+1, str.length)))
+
+    }
+
+    factorialize(n){
+        var factorial = 1
+        for(var i = 0; n>i; n--){
+            factorial*=n
+        }
+        return factorial
     }
     rotate(str){
-        var arr = str.split("");
-        var char = arr.shift();
-        var originalString = arr.join("");
-        originalString+=char
-        return originalString
+        str = str.slice()
+        if(str.length==1){
+            return str
+        }
+        var char = str.shift();
+        str.push(char)
+        return str
     }
     PallindromeSet(alphabet){
         for(var i = 0; i<alphabet.length; i++){
@@ -165,5 +181,8 @@ export class BrassTacks{
 
 var bt = new BrassTacks(0, 0)
 var permutations=[]
+//console.log(bt.rotate(['a', 'b', 'c', 'd']))
+bt.PermWoRep(['a', 'b', 'c', 'd'], permutations)
+console.log(permutations)
 
-console.log(bt.PermutationsWithoutRepetition('abcd', permutations))
+//console.log(bt.factorialize(5))
