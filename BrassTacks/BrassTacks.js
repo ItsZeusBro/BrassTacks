@@ -118,22 +118,18 @@ export class BrassTacks{
         }
         return false
     }
-    PermWoRep(str, permutations){
+    PermWoRep(str, length, permutations){
         if(str.length==1){
             return str
         }
-        else{
+        else if(str.length==length){
             for(var i = 0; i< str.length; i++){
                 str = this.rotate(str)
-                console.log(str)
-                this.PermWoRep(str.slice(0, str.length-1))
-                //this.PermWoRep(str.slice(0, str.length-1)).concat(str.slice(str.length-1, str.length)))
+                permutations.push(this.PermWoRep(str.slice(0, str.length-1)).concat(str.slice(str.length-1)))
             }
-            //console.log()
-            //return this.PermWoRep(this.rotate(str.slice(0, str.length-1))).concat(str.slice(str.length-1, str.length))
+        }else{
+            return this.PermWoRep(str.slice(0, str.length-1)).concat(str.slice(str.length-1))
         }
-        //str.slice(0, i+1).concat(this.PermWoRep(str.slice(i+1, str.length)))
-
     }
 
     factorialize(n){
@@ -182,7 +178,7 @@ export class BrassTacks{
 var bt = new BrassTacks(0, 0)
 var permutations=[]
 //console.log(bt.rotate(['a', 'b', 'c', 'd']))
-bt.PermWoRep(['a', 'b', 'c', 'd'], permutations)
+bt.PermWoRep(['a', 'b', 'c', 'd'], 4,  permutations)
 console.log(permutations)
 
 //console.log(bt.factorialize(5))
