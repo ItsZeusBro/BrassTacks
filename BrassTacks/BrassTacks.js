@@ -124,7 +124,8 @@ export class BrassTacks{
         }
         else if(str.length==length){
             for(var i = 0; i<this.factorialize(length); i++){
-                str = this.PermWoRep(str.slice(0, str.length-1)).concat(str.slice(str.length-1))
+                
+                str = this.rotate(this.PermWoRep(str.slice(0, str.length-1)).concat(str.slice(str.length-1)))
                 permutations.push(str)
             }
             return permutations
