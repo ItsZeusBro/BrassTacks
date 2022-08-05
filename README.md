@@ -20,7 +20,7 @@ For example:
 - cdefghijklmnopqrstuvwxyzyxwvutsrqponmlkjihgfedc
 
 A Compound Pallindrome Base Set is when you string the pallindrome base set together in a non recurring way
-abcdefghijklmnopqrstuvwxyzyxwvutsrqponmlkjihgfedcba bcdefghijklmnopqrstuvwxyzyxwvutsrqponmlkjihgfedcb cdefghijklmnopqrstuvwxyzyxwvutsrqponmlkjihgfedc ... etc
+- abcdefghijklmnopqrstuvwxyzyxwvutsrqponmlkjihgfedcba+bcdefghijklmnopqrstuvwxyzyxwvutsrqponmlkjihgfedcb+cdefghijklmnopqrstuvwxyzyxwvutsrqponmlkjihgfedc ... etc
 ...
 
 
