@@ -1,3 +1,4 @@
+import * as util from "node:util"
 export class BrassTacks{
     constructor(levels, limit){
         this.tree={}
@@ -118,23 +119,23 @@ export class BrassTacks{
         }
         return false
     }
-    PermWoRep(str, length, permutations){
-        if(str.length==1){
-            return str
-        }
-        else if(str.length==length){
-            for(var i = 0; i<this.factorialize(length); i++){
-                
-                str = this.rotate(this.PermWoRep(str.slice(0, str.length-1)).concat(str.slice(str.length-1)))
-                permutations.push(str)
+    PermWoRep(str){
+        var permutations=[]
+        permutations.push(str)
+        
+        for(var i = 0; i<str.length; i++){
+            for(var j = 1; j<str.length; j++){
+                str = this.rotate(str.slice(j, j+1)).concat(str.slice(j+1))
+                console.log(str)
+                // permutations.push(str.slice())
             }
-            return permutations
-        }else{
-            return this.rotate(this.PermWoRep(str.slice(0, str.length-1)).concat(str.slice(str.length-1)))
+            str = this.rotate(str)
         }
 
+        return permutations
     }
 
+    isOdd(num) { return num % 2;}
     factorialize(n){
         var factorial = 1
         for(var i = 0; n>i; n--){
@@ -142,13 +143,15 @@ export class BrassTacks{
         }
         return factorial
     }
-    rotate(str){
-        str = str.slice()
-        if(str.length==1){
-            return str
+    rotate(str, n=1){
+        for(var i = 0; i<n; i++){
+            str = str.slice()
+            if(str.length==1){
+                return str
+            }
+            var char = str.shift();
+            str.push(char)
         }
-        var char = str.shift();
-        str.push(char)
         return str
     }
     PallindromeSet(alphabet){
@@ -179,9 +182,7 @@ export class BrassTacks{
 }
 
 var bt = new BrassTacks(0, 0)
-var permutations=[]
 //console.log(bt.rotate(['a', 'b', 'c', 'd']))
-bt.PermWoRep(['a', 'b', 'c', 'd'], 4,  permutations)
-console.log(permutations)
+console.log(bt.PermWoRep(['a', 'b', 'c', 'd']))
 
 //console.log(bt.factorialize(5))
