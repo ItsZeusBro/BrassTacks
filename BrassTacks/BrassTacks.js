@@ -2,34 +2,37 @@ export class BrassTacks{
     constructor(levels, limit){
         this.tree={}
         this.limit=limit
-        this.bStrings=[]
-        this.dStrings=[]
-        this.BStrings('1', levels)
-        this.BTT(this.tree)
-        this.dStrings = this.dStrings.sort(function(a, b) {
+        this.binaryStrings=[]
+        this.decimalStrings=[]
+        this.levels
+        this.init()
+    }
+    init(){
+        this.BinaryStrings('1', this.levels)
+        this.BinaryStringTree(this.tree)
+        this.decimalStrings = this.decimalStrings.sort(function(a, b) {
             return a - b;
         })
     }
-    
-    BTT(tree){
-        for(var i = 0; i<this.bStrings.length; i++){
-            var tr=tree
-            var string = this.bStrings[i]
+    BinaryStringTree(binaryStringTree){
+        for(var i = 0; i<this.binaryStrings.length; i++){
+            var tree=binaryStringTree
+            var string = this.binaryStrings[i]
             for(var j=0; j<string.length; j++){
                 var char = string[j]
-                if(!tr[char]){
-                    tr[char]={}
+                if(!tree[char]){
+                    tree[char]={}
                 }
-                    tr=tr[char]
+                tree=tree[char]
             }
         }
     }
 
-    BStringWalk(bString){
-        var node = this.tree
-        for(var i = 0; i<bString.length; i++){
-            if(node[bString[i]]){
-                node=node[bString[i]]
+    BinaryStringWalk(binaryStrings){
+        var treeNode = this.tree
+        for(var i = 0; i<binaryStrings.length; i++){
+            if(treeNode[binaryStrings[i]]){
+                treeNode=treeNode[binaryStrings[i]]
             }else{
                 return false
             }
@@ -37,26 +40,26 @@ export class BrassTacks{
         return true
     }
 
-    BStrings(bString, levels){
+    BinaryStrings(binaryString, levels){
         if(levels==0){
             return
         }else{
-            if(this.isBT(bString.slice()+'0')){
-                this.bStrings.push(bString.slice()+'0')
-                this.dStrings.push(parseInt(bString.slice()+'0', 2))
-                this.BStrings(bString.slice()+'0',  levels-1)
+            if(this.isBaseBinaryString(binaryString.slice()+'0')){
+                this.binaryStrings.push(binaryString.slice()+'0')
+                this.decimalStrings.push(parseInt(binaryString.slice()+'0', 2))
+                this.BinaryStrings(binaryString.slice()+'0',  levels-1)
             }
-            if(this.isBT(bString.slice()+'1')){
-                this.bStrings.push(bString.slice()+'1')
-                this.dStrings.push(parseInt(bString.slice()+'1', 2))
-                this.BStrings(bString.slice()+'1',  levels-1)
+            if(this.isBaseBinaryString(binaryString.slice()+'1')){
+                this.binaryStrings.push(binaryString.slice()+'1')
+                this.decimalStrings.push(parseInt(binaryString.slice()+'1', 2))
+                this.BinaryStrings(binaryString.slice()+'1',  levels-1)
             }
         }
     }
 
-    isBT(bString){
-        if(!this.isRecursive(bString)){
-            if(!this.isOverLimit(bString)){
+    isBaseBinaryString(binaryString){
+        if(!this.isRecursive(binaryString)){
+            if(!this.isOverLimit(binaryString)){
                 return true
             }else{
                 return false
@@ -66,15 +69,15 @@ export class BrassTacks{
         }
     }
 
-    isOverLimit(bString){
+    isOverLimit(binaryString){
         //look in reverse order until char changes and keep isOverLimit counter
-        var char=bString[bString.length-1]
+        var char=binaryString[binaryString.length-1]
         var c=0;
-        for(var i = bString.length-1; i>=0; i--){
-            if(char!=bString[i]){
+        for(var i = binaryString.length-1; i>=0; i--){
+            if(char!=binaryString[i]){
                 break
             }
-            if(char==bString[i]){
+            if(char==binaryString[i]){
                 c++;
             }
         }
@@ -116,6 +119,12 @@ export class BrassTacks{
         return false
     }
 
+    PallindromeSet(alphabet){
+        
+    }
+    CompoundPallindromeSet(alphabet){
+
+    }
     log(obj){
         if(obj){
             console.log(util.inspect(obj, false, null, true))
@@ -134,3 +143,5 @@ export class BrassTacks{
         return abs
     }
 }
+
+new BrassTacks()
