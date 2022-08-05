@@ -118,9 +118,28 @@ export class BrassTacks{
         }
         return false
     }
-
+    PermutationsWithoutRepetition(str, permutations){
+        if(str.length==1){
+            return str
+        }else{
+            for(var i=1; i<=str.length; i++){
+                str = this.rotate(str)
+                console.log(str.slice(0, i)+str.slice(i, str.length))
+                //permutations.push(str.slice(0, i+1)+this.PermutationsWithoutRepetition(str.slice(i, str.length), permutations))
+            }
+        }
+    }
+    rotate(str){
+        var arr = str.split("");
+        var char = arr.shift();
+        var originalString = arr.join("");
+        originalString+=char
+        return originalString
+    }
     PallindromeSet(alphabet){
-        
+        for(var i = 0; i<alphabet.length; i++){
+
+        }
     }
     CompoundPallindromeSet(alphabet){
 
@@ -144,4 +163,7 @@ export class BrassTacks{
     }
 }
 
-//new BrassTacks()
+var bt = new BrassTacks(0, 0)
+var permutations=[]
+
+console.log(bt.PermutationsWithoutRepetition('abcd', permutations))

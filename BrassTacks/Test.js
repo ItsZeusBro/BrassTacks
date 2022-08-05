@@ -2,17 +2,16 @@ import { BrassTacks } from "./BrassTacks.js"
 import * as assert from "node:assert"
 class Test{
     constructor(){
-        console.log("UHHH")
         this.tests()
     }
 
     tests(){
-        console.log("UHHH")
-        this.isOverLimit()
-        this.isRecursive()
-        this.primPattAbstract()
-        this.isBinaryBaseString()
-        this.BinaryStringTree()
+        // this.isOverLimit()
+        // this.isRecursive()
+        // this.primPattAbstract()
+        // this.isBinaryBaseString()
+        // this.BinaryStringTree()
+        this.PallindromeSet()
     }
 
     isOverLimit(){
@@ -82,7 +81,7 @@ class Test{
             }
         }
     }
-    
+
     BinaryStringTree(){
         //when we construct a brasstacks object
         //all the bStrings should be able to completely walk through the tree perfectly
@@ -94,13 +93,11 @@ class Test{
         }
     }
 
-    
-
-    
-
-
-
-
+    PallindromeSet(){
+        var alphabet=['abcdefghijklmnopqrstuvwxyz']
+        var bt = new BrassTacks(0,0)
+        bt.PallindromeSet(alphabet)
+    }
 }
 //console.log("UHHH")
 
