@@ -12,12 +12,15 @@ So what i've come up with so far is the distinction between hard and soft base s
 #### Hard Base Strings
 A good example of Hard Base Strings are pallindromes on alphabets. With the added caveat that the last letter in the alphabet is used once and all others are used twice.
 
-The pallindrome base string set is when you find all the unique ordinal sets of the alphabet and construct the base pallindrome on the alphabet.
+The Pallindrome Base Set is when you find all the unique ordinal sets of the alphabet and construct the base pallindrome on the alphabet.
 
 For example:
 - abcdefghijklmnopqrstuvwxyzyxwvutsrqponmlkjihgfedcba
 - bacdefghijklmnopqrstuvwxyzyxwvutsrqponmlkjihgfedcab
-- bcadefghijklmnopqrstuvwxyzyxwvutsrqponmlkjihgfedacb
+- cdefghijklmnopqrstuvwxyzyxwvutsrqponmlkjihgfedc
+
+A Compound Pallindrome Base Set is when you string the pallindrome base set together in a non recurring way
+abcdefghijklmnopqrstuvwxyzyxwvutsrqponmlkjihgfedcba bcdefghijklmnopqrstuvwxyzyxwvutsrqponmlkjihgfedcb cdefghijklmnopqrstuvwxyzyxwvutsrqponmlkjihgfedc ... etc
 ...
 
 
