@@ -49,7 +49,15 @@ class Recursion{
         }
         
     }
-
+    iterSliceRotateSwap(set, i, j){
+        var array=[]
+        for(var i=0; i<set.length; i++){
+            array.push(this.iterSlice(set))
+            set = this.rotate(set)
+            set = this.swap(set, i, j)
+        }
+        return array
+    }
     iterSliceRotate(set){
         var array=[]
         for(var i=0; i<set.length; i++){
@@ -110,11 +118,23 @@ class Recursion{
         if((i>a.length-1) || (j>a.length-1)){
             return a.slice()
         }
-        var b = a.slice()
-        const tmp = b[i]
-        b[i] = b[j]
-        b[j] = tmp
-        return b
+        if(Array.isArray(a)){
+            var b = a.slice()
+            const tmp = b[i]
+            b[i] = b[j]
+            b[j] = tmp
+            return b
+        }else if(typeof a === 'string'){
+            
+            var b = a.slice().split("")
+            const tmp = b[i]
+            b[i] = b[j]
+            b[j] = tmp
+            return b.join("")
+        }else{
+            throw Error("swap expects string or array")
+        }
+
     }
 
     isOdd(num) { return num % 2;}
@@ -147,4 +167,5 @@ class Recursion{
 }
 
 var recursion = new Recursion()
-console.log(recursion.DivSetBaseTree('abcdefghijklmnopqrstuvwxyz', 3, {})) //['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']))
+console.log(recursion.iterSliceRotateSwap('abcdefghijklmnopqrstuvwxyz', 1, 3)) //['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']))
+
