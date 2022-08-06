@@ -8,6 +8,7 @@ export class BrassTacks{
         this.levels=levels
         this.init()
     }
+    
     init(){
         this.BinaryStrings('1', this.levels)
         this.BinaryStringTree(this.tree)
@@ -15,6 +16,7 @@ export class BrassTacks{
             return a - b;
         })
     }
+
     BinaryStringTree(binaryStringTree){
         for(var i = 0; i<this.binaryStrings.length; i++){
             var tree=binaryStringTree
@@ -120,16 +122,7 @@ export class BrassTacks{
         return false
     }
     PermWoRep(str){
-        var permutations=[]
-        var start = str.slice()
-
-        do{
-
-        }while(str!==start)
-        
-        this.rotate(str)
-
-        return permutations
+       
     }
 
     swap(a, i, j){
@@ -142,7 +135,9 @@ export class BrassTacks{
         b[j] = tmp
         return b
     }
+
     isOdd(num) { return num % 2;}
+
     factorialize(n){
         var factorial = 1
         for(var i = 0; n>i; n--){
@@ -150,6 +145,7 @@ export class BrassTacks{
         }
         return factorial
     }
+
     rotate(str, n=1){
         for(var i = 0; i<n; i++){
             str = str.slice()
@@ -161,14 +157,17 @@ export class BrassTacks{
         }
         return str
     }
+
     PallindromeSet(alphabet){
         for(var i = 0; i<alphabet.length; i++){
 
         }
     }
+
     CompoundPallindromeSet(alphabet){
 
     }
+
     log(obj){
         if(obj){
             console.log(util.inspect(obj, false, null, true))
@@ -190,6 +189,6 @@ export class BrassTacks{
 
 var bt = new BrassTacks(0, 0)
 //console.log(bt.rotate(['a', 'b', 'c', 'd']))
-console.log(bt.swap(['a', 'b', 'c', 'd'], 3, 3))
+console.log(bt.PermWoRep(['a', 'b', 'c']))
 
 //console.log(bt.factorialize(5))
