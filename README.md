@@ -35,6 +35,29 @@ If we were trying to build some Arbitrary Object from schema using some general 
       
       
       }
+      
+If we are trying to query some Arbitrary Object from schema using some general recursive tools, what would that schema look like in broad strokes?
+
+    {
+        from:{
+          //general object or structure from which to query
+        
+        },
+        
+        transform: {
+          //this is a mapping translation schema pipeline that serves as the intermediate step or steps required to query the general construct
+
+        
+        }
+        
+        query: {
+          //this anticipates the final transformation by transform and queries it for whatever is needed and the results are put into
+          //some return object as a boolean, answer, or set of answers, or whatever
+          
+        }
+    
+    
+    }
 
 
 ## Base Strings
