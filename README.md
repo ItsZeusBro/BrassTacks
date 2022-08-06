@@ -20,12 +20,12 @@ If we were trying to build some Arbitrary Object from schema using some general 
       
       {
 
-          transform: {
+
               from:{
                 //some general object
               },
               
-              translation:{
+              transform:{
                  //this is a mapping translation schema pipeline that serves as the intermediate 
                  //step or steps required to build a construct from a more general one
               },
@@ -34,7 +34,7 @@ If we were trying to build some Arbitrary Object from schema using some general 
                   //Some primitive base case that each transformed fragment of the general object should end up as 
           
               }
-          }
+         
       }
       
 If we are trying to query some Arbitrary Object from schema using some general recursive tools, what would that schema look like in broad strokes?
@@ -42,12 +42,11 @@ If we are trying to query some Arbitrary Object from schema using some general r
       
       {
 
-          transform: {
               from:{
                 //some general object
               },
               
-              translation:{
+              transform:{
                  //this is a mapping translation schema pipeline that serves as the intermediate 
                  //step or steps required to build construct to query it              
               },
@@ -56,9 +55,17 @@ If we are trying to query some Arbitrary Object from schema using some general r
                   //Some schema denoting what to query (every query should be returned the same way)
           
               }
-          
-         }
       }
+
+### Some important functions and their jobs:
+1. from()
+- This destructures a generic object into a recursive tree of base cases that are translatable by transform()
+2. transform()
+- This takes a destructured tree and transforms it into something that can be used by to() or query()
+4. to()
+- This basically takes a transformation and constructs what was desired in the to: schema from the transformation map
+5. query()
+- This basically takes a transformation and queries what was desired in the query: schema from the transformation map
 
 ## Base Strings
 Lets talk about something I call "Base Strings"
