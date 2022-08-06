@@ -21,14 +21,23 @@ If we were trying to build some Arbitrary Object from schema using some general 
       {
 
           transform: {
-            //this is a mapping translation schema pipeline that serves as the intermediate step or steps required to build a construct from a more general one
+              from:{
+                //some general object
+              },
+              
+              translation:{
+                 //this is a mapping translation schema pipeline that serves as the intermediate 
+                 //step or steps required to build a construct from a more general one
+              },
+
+              to: {
+                  //Some primitive base case that each transformed fragment of the general object should end up as 
+          
+              }
           
           },
           
-          to: {
-            //Some primitive base case that each transformed fragment of the general object should end up as 
-          
-          },
+
           
 
       
@@ -37,23 +46,26 @@ If we were trying to build some Arbitrary Object from schema using some general 
       
 If we are trying to query some Arbitrary Object from schema using some general recursive tools, what would that schema look like in broad strokes?
 
-    {
+      
+      {
 
-        transform: {
-          //this is a mapping translation schema pipeline that serves as the intermediate step or steps required to query a general construct
+          transform: {
+              from:{
+                //some general object
+              },
+              
+              translation:{
+                 //this is a mapping translation schema pipeline that serves as the intermediate 
+                 //step or steps required to build construct to query it              
+              },
 
-        
-        },
-        
-        query: {
-          //this anticipates the final transformation by transform and queries it for whatever is needed and the results are put into
-          //some return object as a boolean, answer, or set of answers, or whatever
+              query: {
+                  //Some schema denoting what to query (every query should be returned the same way)
           
-        }
-    
-    
-    }
-
+              }
+          
+         }
+      }
 
 ## Base Strings
 Lets talk about something I call "Base Strings"
