@@ -7,8 +7,25 @@ class Combinatorics{
         
         
     }
+    sliceIter(set, i=0, j=1, array=[]){
+        if(j==set.length){
+            return
+        }else{
+            //base case
+            var slice = set.slice(i, j)
+            if(Array.isArray(slice)){
+                slice = slice.join("")
+            }
+            if(slice.length && !(array.includes(slice))){
+                array.push(slice)
+            }
+            slice = this.rotate(slice)
+            this.sliceIter(set, i, j+1, array)
+        }
+        return array
+    }
 
-    iterSlice(set, i=0, j=1, array=[]){
+    shiftSlicesIter(set, i=0, j=1, array=[]){
         if(j==set.length){
             return
         }else if (i==0){
@@ -20,7 +37,7 @@ class Combinatorics{
                 array.push(slice)
             }
             while(i<set.length){
-                this.iterSlice(set, i, j+1, array)
+                this.shiftSlicesIter(set, i, j+1, array)
                 i++;
             }
         }else{
@@ -31,7 +48,7 @@ class Combinatorics{
             if(slice.length && !(array.includes(slice))){
                 array.push(slice)
             }
-            this.iterSlice(set, i, j+1, array)
+            this.shiftSlicesIter(set, i, j+1, array)
         }
         return array
     }
@@ -64,8 +81,14 @@ class Combinatorics{
             if(str.length==1){
                 return str
             }
-            var char = str.shift();
-            str.push(char)
+            if(Array.isArray(str)){
+                var char = str.shift();
+                str.push(char)
+
+            }else{
+                var char = str[0]
+                str = str.slice(1)+char
+            }
         }
         return str
     }
@@ -74,4 +97,4 @@ class Combinatorics{
 
 var combinatorics = new Combinatorics()
 
-console.log(combinatorics.iterSlice("abcdefghijklmnopqrstuvwxyz"))
+console.log(combinatorics.shiftSlicesIter("abcdefghijklmnopqrstuvwxyz"))
