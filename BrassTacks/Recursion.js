@@ -24,6 +24,19 @@ class Recursion{
 
     }
 
+    DivArrBaseTree(set, tree={}){
+        if(set.length==1){
+            tree[set[0]]=set[0]
+            return
+        }else if(set.length==0){
+            return
+        }
+        const half = Math.ceil(set.length / 2);   
+        this.DivArrBaseTree(set.slice(0, half), tree)
+        this.DivArrBaseTree(set.slice(-half), tree)
+        return tree
+    }
+
     iterSliceRotate(set){
         var array=[]
         for(var i=0; i<set.length; i++){
@@ -119,3 +132,6 @@ class Recursion{
         return str
     }
 }
+
+var recursion = new Recursion()
+console.log(recursion.DivArrBaseTree('abcdefghijklmnopqrstuvwxyz')) //['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']))
