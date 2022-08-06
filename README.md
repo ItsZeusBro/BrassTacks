@@ -1,13 +1,19 @@
 # BrassTacks
 ## General Recursive Problem Solving
 So when it comes to solving anything recursively, we are interested in two types of problems:
+
 1. Building objects from other objects
 - This is basically a general class of problems that deals primarily with three intermediate general functions
   1. Destructuring some more general object
   2. Intermediate transformation or distilation of fragments of the general object
   3. Constructing those intermediate transformations into a final output structure
+
 2. Querying objects for information
+- This involves some general structure that we wish to query for state information (anything can be looked at in a patterned way unless its a base case object, but even then the base case is a part of some general pattern you wish to query)
+
 3. Making a set of objects do something iteratively
+- If you have a general structure of objects that have actionable functions that need to be done iteratively, or asyncronously, why cant recursion do both?
+
 
 
 ## Base Strings
