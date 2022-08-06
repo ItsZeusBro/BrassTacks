@@ -7,8 +7,17 @@ class Combinatorics{
         
         
     }
+    rotateSliceIter(set){
+        var array=[]
+        for(var i=0; i<set.length; i++){
+            array.push(this.sliceIter(set))
+            set = this.rotate(set)
+            console.log(set)
+        }
+        return array
+    }
     sliceIter(set, i=0, j=1, array=[]){
-        if(j==set.length){
+        if(j==set.length+1){
             return
         }else{
             //base case
@@ -97,4 +106,4 @@ class Combinatorics{
 
 var combinatorics = new Combinatorics()
 
-console.log(combinatorics.shiftSlicesIter("abcdefghijklmnopqrstuvwxyz"))
+console.log(combinatorics.experiment("abcdefghijklmnopqrstuvwxyz"))
