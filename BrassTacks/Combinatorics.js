@@ -7,16 +7,18 @@ class Combinatorics{
         
         
     }
-    rotateSliceIter(set){
+    experiment(set){
+
+    }
+    iterSliceRotate(set){
         var array=[]
         for(var i=0; i<set.length; i++){
-            array.push(this.sliceIter(set))
+            array.push(this.iterSlice(set))
             set = this.rotate(set)
-            console.log(set)
         }
         return array
     }
-    sliceIter(set, i=0, j=1, array=[]){
+    iterSlice(set, i=0, j=1, array=[]){
         if(j==set.length+1){
             return
         }else{
@@ -29,13 +31,14 @@ class Combinatorics{
                 array.push(slice)
             }
             slice = this.rotate(slice)
-            this.sliceIter(set, i, j+1, array)
+            this.iterSlice(set, i, j+1, array)
         }
         return array
     }
 
-    shiftSlicesIter(set, i=0, j=1, array=[]){
-        if(j==set.length){
+    //performs iterSlice on 
+    iterSlices(set, i=0, j=1, array=[]){
+        if(j==set.length+1){
             return
         }else if (i==0){
             var slice = set.slice(i, j)
@@ -46,7 +49,7 @@ class Combinatorics{
                 array.push(slice)
             }
             while(i<set.length){
-                this.shiftSlicesIter(set, i, j+1, array)
+                this.iterSlices(set, i, j+1, array)
                 i++;
             }
         }else{
@@ -57,7 +60,7 @@ class Combinatorics{
             if(slice.length && !(array.includes(slice))){
                 array.push(slice)
             }
-            this.shiftSlicesIter(set, i, j+1, array)
+            this.iterSlices(set, i, j+1, array)
         }
         return array
     }
@@ -106,4 +109,4 @@ class Combinatorics{
 
 var combinatorics = new Combinatorics()
 
-console.log(combinatorics.experiment("abcdefghijklmnopqrstuvwxyz"))
+console.log(combinatorics.rotateIterSlice("abcdefghijklmnopqrstuvwxyz"))
