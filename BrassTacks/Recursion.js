@@ -9,16 +9,20 @@ class Recursion{
 
     }
     //arbitrary construct objectives are less arbitrary when schemified in a formal way
-    construct(from){
+    build(buildSchema, fromObj){
 
+    }
+    _construct(fromObj){
+
+    }
+    _destruct(toBase){
+        //base case, or whatever
     }
     //arbitrary queries are less arbitrary when schemified in a formal way (schema is inherently recursive)
     query(object){
 
     }
-    _destruct(to){
-        //base case, or whatever
-    }
+
 
 
 }
