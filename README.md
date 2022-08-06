@@ -34,14 +34,7 @@ If we were trying to build some Arbitrary Object from schema using some general 
                   //Some primitive base case that each transformed fragment of the general object should end up as 
           
               }
-          
-          },
-          
-
-          
-
-      
-      
+          }
       }
       
 If we are trying to query some Arbitrary Object from schema using some general recursive tools, what would that schema look like in broad strokes?
