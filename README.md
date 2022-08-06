@@ -15,6 +15,25 @@ So when it comes to solving anything recursively, we are interested in two types
 - If you have a general structure of objects that have actionable functions that need to be done iteratively, or asyncronously, why cant recursion do both?
 
 
+If we were trying to build some Arbitrary Object from schema using some general recursive tools what would that schema look like in broad strokes?
+      {
+          from:{
+            //general object or structure from which to build
+          },
+          
+          to: {
+            //Some primitive base case that each transformed fragment of the general object should end up as 
+          
+          },
+          
+          transform: {
+            //this is a mapping translation schema pipeline that serves as the intermediate step or steps required to build the final construct
+          
+          }
+      
+      
+      }
+
 
 ## Base Strings
 Lets talk about something I call "Base Strings"
