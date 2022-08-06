@@ -16,6 +16,8 @@ So when it comes to solving anything recursively, we are interested in two types
 
 
 If we were trying to build some Arbitrary Object from schema using some general recursive tools what would that schema look like in broad strokes?
+      
+      
       {
           from:{
             //general object or structure from which to build
