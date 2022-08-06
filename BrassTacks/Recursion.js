@@ -24,17 +24,30 @@ class Recursion{
 
     }
 
-    DivArrBaseTree(set, tree={}){
-        if(set.length==1){
+
+
+    DivSetBaseTree(set, n, tree={}){
+        if(set.length==n){
+            tree[set.slice(0, n)]=set.slice(0, n)
+            return
+        }else if(set.length==n-1){
+            tree[set.slice(0, n-1)]=set.slice(0, n-1)
+            return
+        }else if(set.length==2){
+            tree[set.slice(0, 2)]=set.slice(0, 2)
+        }else if(set.length==1){
             tree[set[0]]=set[0]
             return
         }else if(set.length==0){
             return
+        }else{
+            const _n = Math.ceil(set.length / n); 
+            for(var i =0; i<set.length; i+=_n){
+                this.DivSetBaseTree(set.slice(i, _n*(i+1)),n, tree)
+            }  
+            return tree
         }
-        const half = Math.ceil(set.length / 2);   
-        this.DivArrBaseTree(set.slice(0, half), tree)
-        this.DivArrBaseTree(set.slice(-half), tree)
-        return tree
+        
     }
 
     iterSliceRotate(set){
@@ -134,4 +147,4 @@ class Recursion{
 }
 
 var recursion = new Recursion()
-console.log(recursion.DivArrBaseTree('abcdefghijklmnopqrstuvwxyz')) //['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']))
+console.log(recursion.DivSetBaseTree('abcdefghijklmnopqrstuvwxyz', 3, {})) //['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']))
