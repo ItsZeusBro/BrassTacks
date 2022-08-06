@@ -10,6 +10,23 @@ class Combinatorics{
     experiment(set){
 
     }
+    reverseIterSlice(set, i=set.length, j=set.length-1, array=[]){
+        if(j==-1){
+            return
+        }else{
+            var slice = set.slice(j, i)
+            if(Array.isArray(slice)){
+                slice = slice.join("")
+            }
+            if(slice.length && !(array.includes(slice))){
+                array.push(slice)
+            }
+            slice = this.rotate(slice)
+            this.reverseIterSlice(set, i, j-1, array)
+        }
+        return array
+        
+    }
     iterSliceRotate(set){
         var array=[]
         for(var i=0; i<set.length; i++){
@@ -109,4 +126,4 @@ class Combinatorics{
 
 var combinatorics = new Combinatorics()
 
-console.log(combinatorics.rotateIterSlice("abcdefghijklmnopqrstuvwxyz"))
+console.log(combinatorics.reverseIterSlice("abcdefghijklmnopqrstuvwxyz"))
