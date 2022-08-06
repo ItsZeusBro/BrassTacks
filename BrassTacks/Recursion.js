@@ -4,17 +4,23 @@
 //Some involve a permutative approach
 //as opposed to coming with custom solutions in an arbitrary way, we can limit the number of ways in which
 //you can generate the solution, and use a general set of tools to do it the same way every time
+
 class Recursion{
+
     constructor(transformation){
 
     }
 
     transform(transformation){
-
         return transform
     }
 
+    from(object){
+        //returns a destructured object as an object tree
+        //so no matter what the object is, we should know how to destructure it using brass tacks analysis
+    }
+
     to(){
-        
+
     }
 }

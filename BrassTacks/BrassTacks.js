@@ -8,7 +8,7 @@ export class BrassTacks{
         this.levels=levels
         this.init()
     }
-    
+
     init(){
         this.BinaryStrings('1', this.levels)
         this.BinaryStringTree(this.tree)
@@ -125,39 +125,7 @@ export class BrassTacks{
        
     }
 
-    swap(a, i, j){
-        if((i>a.length-1) || (j>a.length-1)){
-            return a.slice()
-        }
-        var b = a.slice()
-        const tmp = b[i]
-        b[i] = b[j]
-        b[j] = tmp
-        return b
-    }
-
-    isOdd(num) { return num % 2;}
-
-    factorialize(n){
-        var factorial = 1
-        for(var i = 0; n>i; n--){
-            factorial*=n
-        }
-        return factorial
-    }
-
-    rotate(str, n=1){
-        for(var i = 0; i<n; i++){
-            str = str.slice()
-            if(str.length==1){
-                return str
-            }
-            var char = str.shift();
-            str.push(char)
-        }
-        return str
-    }
-
+    
     PallindromeSet(alphabet){
         for(var i = 0; i<alphabet.length; i++){
 
