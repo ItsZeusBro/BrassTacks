@@ -49,11 +49,11 @@ class Recursion{
         }
         
     }
-    iterSliceRotateSwap(set, i, j){
+    iterSliceRotateSwap(set, r, i, j){
         var array=[]
         for(var i=0; i<set.length; i++){
             array.push(this.iterSlice(set))
-            set = this.rotate(set)
+            set = this.rotate(set, r)
             set = this.swap(set, i, j)
         }
         return array
@@ -167,5 +167,4 @@ class Recursion{
 }
 
 var recursion = new Recursion()
-console.log(recursion.iterSliceRotateSwap('abcdefghijklmnopqrstuvwxyz', 1, 3)) //['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']))
-
+console.log(recursion.iterSliceRotateSwap('abcdefghijklmnopqrstuvwxyz', 2, 1, 3)) //['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']))
