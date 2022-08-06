@@ -14,7 +14,7 @@ class Combinatorics{
         }else if (i==0){
             var slice = set.slice(i, j)
             if(Array.isArray(slice)){
-                slice.join("")
+                slice = slice.join("")
             }
             if(slice.length && !(array.includes(slice))){
                 array.push(slice)
@@ -26,7 +26,7 @@ class Combinatorics{
         }else{
             var slice = set.slice(i, j)
             if(Array.isArray(slice)){
-                slice.join("")
+                slice=slice.join("")
             }
             if(slice.length && !(array.includes(slice))){
                 array.push(slice)
@@ -74,4 +74,4 @@ class Combinatorics{
 
 var combinatorics = new Combinatorics()
 
-console.log(combinatorics.iterSlice('abcde'))
+console.log(combinatorics.iterSlice("abcdefghijklmnopqrstuvwxyz"))
