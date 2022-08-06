@@ -10,6 +10,8 @@ class Combinatorics{
     experiment(set){
 
     }
+    
+    //there is no logic to the ordering of IterSlices, its just a set, so we don't need to reverse it
     reverseIterSlice(set, i=set.length, j=set.length-1, array=[]){
         if(j==-1){
             return
@@ -126,4 +128,4 @@ class Combinatorics{
 
 var combinatorics = new Combinatorics()
 
-console.log(combinatorics.reverseIterSlice("abcdefghijklmnopqrstuvwxyz"))
+console.log(combinatorics.reverseIterSlice("abcdefghijklmnopqrstuvwxyz").join('\n'))
