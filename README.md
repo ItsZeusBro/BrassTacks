@@ -19,8 +19,10 @@ If we were trying to build some Arbitrary Object from schema using some general 
       
       
       {
-          from:{
-            //general object or structure from which to build
+
+          transform: {
+            //this is a mapping translation schema pipeline that serves as the intermediate step or steps required to build a construct from a more general one
+          
           },
           
           to: {
@@ -28,10 +30,7 @@ If we were trying to build some Arbitrary Object from schema using some general 
           
           },
           
-          transform: {
-            //this is a mapping translation schema pipeline that serves as the intermediate step or steps required to build the final construct
-          
-          }
+
       
       
       }
@@ -39,16 +38,12 @@ If we were trying to build some Arbitrary Object from schema using some general 
 If we are trying to query some Arbitrary Object from schema using some general recursive tools, what would that schema look like in broad strokes?
 
     {
-        from:{
-          //general object or structure from which to query
-        
-        },
-        
+
         transform: {
-          //this is a mapping translation schema pipeline that serves as the intermediate step or steps required to query the general construct
+          //this is a mapping translation schema pipeline that serves as the intermediate step or steps required to query a general construct
 
         
-        }
+        },
         
         query: {
           //this anticipates the final transformation by transform and queries it for whatever is needed and the results are put into
