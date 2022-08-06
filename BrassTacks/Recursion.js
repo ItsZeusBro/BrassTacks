@@ -5,22 +5,25 @@
 //as opposed to coming with custom solutions in an arbitrary way, we can limit the number of ways in which
 //you can generate the solution, and use a general set of tools to do it the same way every time
 class Recursion{
-    constructor(){
-
+    constructor(recursionObj){
+        
     }
-    //arbitrary construct objectives are less arbitrary when schemified in a formal way
-    build(buildSchema, fromObj){
 
+    to(schema){
+        return obj
     }
-    _construct(fromObj){
 
-    }
-    _destruct(toBase){
+    from(schema){
         //base case, or whatever
     }
-    //arbitrary queries are less arbitrary when schemified in a formal way (schema is inherently recursive)
-    query(object){
 
+    transform(schema){
+        return transform
+    }
+
+    //arbitrary queries are less arbitrary when schemified in a formal way (schema is inherently recursive)
+    query(transform, schema){
+        return query
     }
 
 
