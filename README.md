@@ -1,5 +1,10 @@
 # BrassTacks
 ## General Recursive Problem Solving
+So when it comes to solving anything recursively, we are interested in two types of problems:
+1. Building objects from other objects
+2. Querying objects for information
+3. Making a set of objects do something iteratively
+
 ## Base Strings
 Lets talk about something I call "Base Strings"
 
