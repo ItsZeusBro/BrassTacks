@@ -1,5 +1,5 @@
 # BrassTacks
-
+## General Recursive Problem Solving
 ## Base Strings
 Lets talk about something I call "Base Strings"
 
