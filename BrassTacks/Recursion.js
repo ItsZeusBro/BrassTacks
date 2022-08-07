@@ -50,10 +50,21 @@ class Recursion{
     //a description of the operation and a result associated with them
     //which one do we want? 
     iterJSliceRotateSwap(set,  i=0, j=1, s=1, r=1, n=set.length, array=[]){
+        if(j==set.length){
+            j=j-i;
+            i=0;
+        }
         if(n==0){return}
-        var slice = set.slice(i, j)
-        if(Array.isArray(slice)){slice = slice.join("")}
+        var slice;
+        if(Array.isArray(slice)){
+            slice = set.slice(i, j)
+            slice = slice.join("")
+        }else{
+            slice = set.slice(i, j)
+        }
+
         if(slice.length){array.push(slice)}
+
         set = this.rotate(set, r)
         set = this.swap(set, i, s)
         j++;
@@ -68,9 +79,16 @@ class Recursion{
             i=0;
         }
         if(n==0){return}
-        var slice = set.slice(i, j)
-        if(Array.isArray(slice)){slice = slice.join("")}
+        var slice;
+        if(Array.isArray(slice)){
+            slice = set.slice(i, j)
+            slice = slice.join("")
+        }else{
+            slice = set.slice(i, j)
+        }
+
         if(slice.length){array.push(slice)}
+
         set = this.rotate(set, r)
         set = this.swap(set, i, s)
         i++;
@@ -79,15 +97,23 @@ class Recursion{
         this.iterIJSliceRotateSwap(set, i, j, r, s, n, array)
         return array
     }
+
     iterIJSSliceRotateSwap(set, i=0, j=1, s=1, r=1, n=set.length, array=[]){
         if(j==set.length){
             j=j-i;
             i=0;
         }
         if(n==0){return}
-        var slice = set.slice(i, j)
-        if(Array.isArray(slice)){slice = slice.join("")}
+        var slice;
+        if(Array.isArray(slice)){
+            slice = set.slice(i, j)
+            slice = slice.join("")
+        }else{
+            slice = set.slice(i, j)
+        }
+
         if(slice.length){array.push(slice)}
+
         set = this.rotate(set, r)
         set = this.swap(set, i, s)
         i++;
@@ -99,10 +125,21 @@ class Recursion{
     }
 
     iterJSliceRotate(set, i=0, j=1, r=1, n=set.length){
+        if(j==set.length){
+            j=j-i;
+            i=0;
+        }
         if(n==0){return}
-        var slice = set.slice(i, j)
-        if(Array.isArray(slice)){slice = slice.join("")}
+        var slice;
+        if(Array.isArray(slice)){
+            slice = set.slice(i, j)
+            slice = slice.join("")
+        }else{
+            slice = set.slice(i, j)
+        }
+
         if(slice.length){array.push(slice)}
+
         set = this.rotate(set, r)
         j++;
         n--;
@@ -111,10 +148,21 @@ class Recursion{
     }
 
     iterIJSliceRotate(set, i=0, j=1, r=1, n=set.length){
+        if(j==set.length){
+            j=j-i;
+            i=0;
+        }
         if(n==0){return}
-        var slice = set.slice(i, j)
-        if(Array.isArray(slice)){slice = slice.join("")}
+        var slice;
+        if(Array.isArray(slice)){
+            slice = set.slice(i, j)
+            slice = slice.join("")
+        }else{
+            slice = set.slice(i, j)
+        }
+
         if(slice.length){array.push(slice)}
+
         set = this.rotate(set, r)
         i++
         j++;
@@ -124,10 +172,21 @@ class Recursion{
     }
 
     iterJSlice(set, i=0, j=1, n=set.length, array=[]){
+        if(j==set.length){
+            j=j-i;
+            i=0;
+        }
         if(n==0){return}
-        var slice = set.slice(i, j)
-        if(Array.isArray(slice)){slice = slice.join("")}
+        var slice;
+        if(Array.isArray(slice)){
+            slice = set.slice(i, j)
+            slice = slice.join("")
+        }else{
+            slice = set.slice(i, j)
+        }
+
         if(slice.length){array.push(slice)}
+
         j++;
         n--;
         this.iterJSliceRotateSwap(set, i, j, n, array)
@@ -188,8 +247,8 @@ class Recursion{
             for(var i=n; i!=0; i++){
                 str = str.slice()
                 if(Array.isArray(str)){
-                    var char = str.pop();
-                    str.unshift(char)
+                    var chars = str.slice(0, str.length-1)
+                    str = str.slice(-1).concat(chars)
                 }else{
                     var chars = str.slice(0, str.length-1)
                     str = str.slice(-1)+chars
@@ -205,8 +264,11 @@ var i=0;
 var j=2;
 var s=0;
 var n=1000;
-console.log(recursion.iterIJSliceRotateSwap('abcdefghijklmnopqrstuvwxyz', i, j, s, -1, n)) //['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']))
-console.log(recursion.iterIJSliceRotateSwap('abcdefghijklmnopqrstuvwxyz', i, j, s, 1, n)) //['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']))
+// console.log(recursion.iterIJSliceRotateSwap("abcdefghijklmnopqrstuvwxyz", i, j, s, 1, n))
+// console.log(recursion.iterIJSliceRotateSwap(['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'], i, j, s, 1, n))
 
-//console.log(recursion.rotate('abcdefghijklmnopqrstuvwxyz', 1), 1)
-// console.log(recursion.rotate('abcdefghijklmnopqrstuvwxyz', -5))
+console.log(recursion.iterIJSliceRotateSwap("abcdefghijklmnopqrstuvwxyz", i, j, s, -2, n))
+console.log(recursion.iterIJSliceRotateSwap(['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'], i, j, s, -2, n))
+
+// console.log(recursion.rotate("abcdefghijklmnopqrstuvwxyz", -1))
+// console.log(recursion.rotate(['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'], -1))
