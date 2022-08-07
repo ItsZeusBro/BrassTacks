@@ -171,7 +171,7 @@ class Recursion{
             return str
         }
 
-        if(n=>0){
+        if(n>=0){
             for(var i = 0; i<n; i++){
                 str = str.slice()
                 if(Array.isArray(str)){
@@ -185,15 +185,14 @@ class Recursion{
             }
             return str
         }else if(n<0){
-            console.log(n)
-            for(var i = n; i==0; i++){
+            for(var i=n; i!=0; i++){
                 str = str.slice()
                 if(Array.isArray(str)){
                     var char = str.pop();
                     str.unshift(char)
                 }else{
                     var chars = str.slice(0, str.length-1)
-                    str = chars+str.slice(-1)
+                    str = str.slice(-1)+chars
                 }
             }
             return str
@@ -205,8 +204,9 @@ var recursion = new Recursion()
 var i=0;
 var j=2;
 var s=0;
-var r=1;
 var n=1000;
-//console.log(recursion.iterIJSliceRotateSwap('abcdefghijklmnopqrstuvwxyz', i, j, s, r, n)) //['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']))
-console.log(recursion.rotate('abcdefghijklmnopqrstuvwxyz', 1), 1)
-console.log(recursion.rotate('abcdefghijklmnopqrstuvwxyz', -1), -1)
+console.log(recursion.iterIJSliceRotateSwap('abcdefghijklmnopqrstuvwxyz', i, j, s, -1, n)) //['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']))
+console.log(recursion.iterIJSliceRotateSwap('abcdefghijklmnopqrstuvwxyz', i, j, s, 1, n)) //['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']))
+
+//console.log(recursion.rotate('abcdefghijklmnopqrstuvwxyz', 1), 1)
+// console.log(recursion.rotate('abcdefghijklmnopqrstuvwxyz', -5))
