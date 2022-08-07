@@ -167,21 +167,37 @@ class Recursion{
     }
 
     rotate(str, n=1){
-        for(var i = 0; i<n; i++){
-            str = str.slice()
-            if(str.length==1){
-                return str
-            }
-            if(Array.isArray(str)){
-                var char = str.shift();
-                str.push(char)
-
-            }else{
-                var char = str[0]
-                str = str.slice(1)+char
-            }
+        if(str.length==1){
+            return str
         }
-        return str
+
+        if(n=>0){
+            for(var i = 0; i<n; i++){
+                str = str.slice()
+                if(Array.isArray(str)){
+                    var char = str.shift();
+                    str.push(char)
+    
+                }else{
+                    var char = str[0]
+                    str = str.slice(1)+char
+                }
+            }
+            return str
+        }else if(n<0){
+            console.log(n)
+            for(var i = n; i==0; i++){
+                str = str.slice()
+                if(Array.isArray(str)){
+                    var char = str.pop();
+                    str.unshift(char)
+                }else{
+                    var chars = str.slice(0, str.length-1)
+                    str = chars+str.slice(-1)
+                }
+            }
+            return str
+        }
     }
 }
 
@@ -191,4 +207,6 @@ var j=2;
 var s=0;
 var r=1;
 var n=1000;
-console.log(recursion.iterIJSliceRotateSwap('abcdefghijklmnopqrstuvwxyz', i, j, s, r, n)) //['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']))
+//console.log(recursion.iterIJSliceRotateSwap('abcdefghijklmnopqrstuvwxyz', i, j, s, r, n)) //['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']))
+console.log(recursion.rotate('abcdefghijklmnopqrstuvwxyz', 1), 1)
+console.log(recursion.rotate('abcdefghijklmnopqrstuvwxyz', -1), -1)
