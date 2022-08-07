@@ -49,7 +49,7 @@ class Recursion{
     }
     //a description of the operation and a result associated with them
     //which one do we want? 
-    iterJSliceRotateSwap(set, i, j, s, r, n, array=[]){
+    iterJSliceRotateSwap(set,  i=0, j=1, s=1, r=1, n=set.length, array=[]){
         if(n==0){return}
         var slice = set.slice(i, j)
         if(Array.isArray(slice)){slice = slice.join("")}
@@ -62,7 +62,7 @@ class Recursion{
         return array
     }
 
-    iterIJSliceRotateSwap(set, i, j, s, r, n, array=[]){
+    iterIJSliceRotateSwap(set,  i=0, j=1, s=1, r=1, n=set.length, array=[]){
         if(j==set.length){
             j=j-i;
             i=0;
@@ -79,63 +79,60 @@ class Recursion{
         this.iterIJSliceRotateSwap(set, i, j, r, s, n, array)
         return array
     }
-
-    iterSliceRotate(set){
-        var array=[]
-        for(var i=0; i<set.length; i++){
-            array.push(this.iterSlice(set))
-            set = this.rotate(set)
+    iterIJSSliceRotateSwap(set, i=0, j=1, s=1, r=1, n=set.length, array=[]){
+        if(j==set.length){
+            j=j-i;
+            i=0;
         }
+        if(n==0){return}
+        var slice = set.slice(i, j)
+        if(Array.isArray(slice)){slice = slice.join("")}
+        if(slice.length){array.push(slice)}
+        set = this.rotate(set, r)
+        set = this.swap(set, i, s)
+        i++;
+        j++;
+        s++;
+        n--;
+        this.iterIJSliceRotateSwap(set, i, j, r, s, n, array)
         return array
     }
 
-    iterSlice(set, i=0, j=1, array=[]){
-        if(j==set.length+1){
-            return
-        }else{
-            //base case
-            var slice = set.slice(i, j)
-            if(Array.isArray(slice)){
-                slice = slice.join("")
-            }
-            if(slice.length && !(array.includes(slice))){
-                array.push(slice)
-            }
-            slice = this.rotate(slice)
-            this.iterSlice(set, i, j+1, array)
-        }
+    iterJSliceRotate(set, i=0, j=1, r=1, n=set.length){
+        if(n==0){return}
+        var slice = set.slice(i, j)
+        if(Array.isArray(slice)){slice = slice.join("")}
+        if(slice.length){array.push(slice)}
+        set = this.rotate(set, r)
+        j++;
+        n--;
+        this.iterJSliceRotateSwap(set, i, j, r, n, array)
         return array
     }
 
-    //performs iterSlice on 
-    iterSlices(set, i=0, j=1, array=[]){
-        if(j==set.length+1){
-            return
-        }else if (i==0){
-            var slice = set.slice(i, j)
-            if(Array.isArray(slice)){
-                slice = slice.join("")
-            }
-            if(slice.length && !(array.includes(slice))){
-                array.push(slice)
-            }
-            while(i<set.length){
-                this.iterSlices(set, i, j+1, array)
-                i++;
-            }
-        }else{
-            var slice = set.slice(i, j)
-            if(Array.isArray(slice)){
-                slice=slice.join("")
-            }
-            if(slice.length && !(array.includes(slice))){
-                array.push(slice)
-            }
-            this.iterSlices(set, i, j+1, array)
-        }
+    iterIJSliceRotate(set, i=0, j=1, r=1, n=set.length){
+        if(n==0){return}
+        var slice = set.slice(i, j)
+        if(Array.isArray(slice)){slice = slice.join("")}
+        if(slice.length){array.push(slice)}
+        set = this.rotate(set, r)
+        i++
+        j++;
+        n--;
+        this.iterJSliceRotateSwap(set, i, j, r, n, array)
         return array
     }
-    
+
+    iterJSlice(set, i=0, j=1, n=set.length, array=[]){
+        if(n==0){return}
+        var slice = set.slice(i, j)
+        if(Array.isArray(slice)){slice = slice.join("")}
+        if(slice.length){array.push(slice)}
+        j++;
+        n--;
+        this.iterJSliceRotateSwap(set, i, j, n, array)
+        return array
+    }
 
     swap(a, i, j){
         if((i>a.length-1) || (j>a.length-1)){
@@ -148,7 +145,6 @@ class Recursion{
             b[j] = tmp
             return b
         }else if(typeof a === 'string'){
-            
             var b = a.slice().split("")
             const tmp = b[i]
             b[i] = b[j]
