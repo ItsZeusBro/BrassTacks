@@ -24,8 +24,6 @@ class Recursion{
 
     }
 
-
-
     DivSetBaseTree(set, n, tree={}){
         if(set.length==n){
             tree[set.slice(0, n)]=set.slice(0, n)
@@ -49,15 +47,39 @@ class Recursion{
         }
         
     }
-    iterSliceRotateSwap(set, r, i, j){
-        var array=[]
-        for(var i=0; i<set.length; i++){
-            array.push(this.iterSlice(set))
-            set = this.rotate(set, r)
-            set = this.swap(set, i, j)
-        }
+    //a description of the operation and a result associated with them
+    //which one do we want? 
+    iterJSliceRotateSwap(set, i, j, s, r, n, array=[]){
+        if(n==0){return}
+        var slice = set.slice(i, j)
+        if(Array.isArray(slice)){slice = slice.join("")}
+        if(slice.length){array.push(slice)}
+        set = this.rotate(set, r)
+        set = this.swap(set, i, s)
+        j++;
+        n--;
+        this.iterJSliceRotateSwap(set, i, j, r, s, n, array)
         return array
     }
+
+    iterIJSliceRotateSwap(set, i, j, s, r, n, array=[]){
+        if(j==set.length){
+            j=j-i;
+            i=0;
+        }
+        if(n==0){return}
+        var slice = set.slice(i, j)
+        if(Array.isArray(slice)){slice = slice.join("")}
+        if(slice.length){array.push(slice)}
+        set = this.rotate(set, r)
+        set = this.swap(set, i, s)
+        i++;
+        j++;
+        n--;
+        this.iterIJSliceRotateSwap(set, i, j, r, s, n, array)
+        return array
+    }
+
     iterSliceRotate(set){
         var array=[]
         for(var i=0; i<set.length; i++){
@@ -66,6 +88,7 @@ class Recursion{
         }
         return array
     }
+
     iterSlice(set, i=0, j=1, array=[]){
         if(j==set.length+1){
             return
@@ -167,4 +190,9 @@ class Recursion{
 }
 
 var recursion = new Recursion()
-console.log(recursion.iterSliceRotateSwap('abcdefghijklmnopqrstuvwxyz', 2, 1, 3)) //['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']))
+var i=0;
+var j=2;
+var s=0;
+var r=1;
+var n=1000;
+console.log(recursion.iterIJSliceRotateSwap('abcdefghijklmnopqrstuvwxyz', i, j, s, r, n)) //['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']))
