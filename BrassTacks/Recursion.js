@@ -56,13 +56,11 @@ class Recursion{
         }
         if(n==0){return}
         var slice;
-        if(Array.isArray(slice)){
-            slice = set.slice(i, j)
-            slice = slice.join("")
-        }else{
-            slice = set.slice(i, j)
+        if(Array.isArray(set)){
+            set = set.join("")
         }
-
+        slice = set.slice(i, j)
+        
         if(slice.length){array.push(slice)}
 
         set = this.rotate(set, r)
@@ -80,12 +78,10 @@ class Recursion{
         }
         if(n==0){return}
         var slice;
-        if(Array.isArray(slice)){
-            slice = set.slice(i, j)
-            slice = slice.join("")
-        }else{
-            slice = set.slice(i, j)
+        if(Array.isArray(set)){
+            set = set.join("")
         }
+        slice = set.slice(i, j)
 
         if(slice.length){array.push(slice)}
 
@@ -105,12 +101,10 @@ class Recursion{
         }
         if(n==0){return}
         var slice;
-        if(Array.isArray(slice)){
-            slice = set.slice(i, j)
-            slice = slice.join("")
-        }else{
-            slice = set.slice(i, j)
+        if(Array.isArray(set)){
+            set = set.join("")
         }
+        slice = set.slice(i, j)
 
         if(slice.length){array.push(slice)}
 
@@ -131,12 +125,10 @@ class Recursion{
         }
         if(n==0){return}
         var slice;
-        if(Array.isArray(slice)){
-            slice = set.slice(i, j)
-            slice = slice.join("")
-        }else{
-            slice = set.slice(i, j)
+        if(Array.isArray(set)){
+            set = set.join("")
         }
+        slice = set.slice(i, j)
 
         if(slice.length){array.push(slice)}
 
@@ -154,12 +146,10 @@ class Recursion{
         }
         if(n==0){return}
         var slice;
-        if(Array.isArray(slice)){
-            slice = set.slice(i, j)
-            slice = slice.join("")
-        }else{
-            slice = set.slice(i, j)
+        if(Array.isArray(set)){
+            set = set.join("")
         }
+        slice = set.slice(i, j)
 
         if(slice.length){array.push(slice)}
 
@@ -178,12 +168,10 @@ class Recursion{
         }
         if(n==0){return}
         var slice;
-        if(Array.isArray(slice)){
-            slice = set.slice(i, j)
-            slice = slice.join("")
-        }else{
-            slice = set.slice(i, j)
+        if(Array.isArray(set)){
+            set = set.join("")
         }
+        slice = set.slice(i, j)
 
         if(slice.length){array.push(slice)}
 
